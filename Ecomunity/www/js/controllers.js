@@ -28,16 +28,20 @@ function ($scope, $stateParams, communities, community, $rootScope, posts) {
     msg.author = "pepe";
     msg.type = "msg";
     all.$add(msg);
+    $scope.a.msg = "";
   }
 }])
 
-.controller('anonimosCtrl', ['$scope', '$stateParams', 'communities', 'community', '$rootScope', 'posts',
-function ($scope, $stateParams, communities, community, $rootScope, posts) {
+.controller('anonimosCtrl', ['$scope', '$stateParams', 'communities', 'community', '$rootScope', 'anonimos',
+function ($scope, $stateParams, communities, community, $rootScope, anonimos) {
   $scope.showPosts = false;
   $scope.communities = communities;
   $scope.a = {};
   $scope.a.msg = "";
+  var current;
+
   $scope.show = function (id){
+    current = id;
     $scope.showPosts = true;
     var comm = community(id)
     $scope.posts = comm.anonimos;
@@ -46,11 +50,12 @@ function ($scope, $stateParams, communities, community, $rootScope, posts) {
     $scope.showPosts = false;
   };
   $scope.sendToCommunity = function(){
-    var all = posts(current);
+    var all = anonimos(current);
     var msg = {};
     msg.text = $scope.a.msg;
     msg.type = "msg";
     all.$add(msg);
+    $scope.a.msg = "";
   }
 }])
 
