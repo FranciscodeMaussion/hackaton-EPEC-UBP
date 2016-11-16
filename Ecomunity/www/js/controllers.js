@@ -12,7 +12,7 @@ function ($scope, $stateParams, communities) {
 
 }])
 
-.controller('anNimosCtrl', ['$scope', '$stateParams',
+.controller('anonimosCtrl', ['$scope', '$stateParams',
 function ($scope, $stateParams) {
 
 
