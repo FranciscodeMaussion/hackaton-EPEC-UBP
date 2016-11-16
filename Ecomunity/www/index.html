@@ -15,19 +15,6 @@
           .catch(err => console.log('Error', err));
       }
     </script>-->
-    <script src="lib/firebase/firebase.js"></script>
-    <script src="lib/angularfire/dist/angularfire.min.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyCohe6_c1IUA7M8G3_UDFV9pzZhpzNw-sU",
-        authDomain: "ecommunity-f5eac.firebaseapp.com",
-        databaseURL: "https://ecommunity-f5eac.firebaseio.com",
-        storageBucket: "ecommunity-f5eac.appspot.com",
-        messagingSenderId: "335254327521"
-      };
-      firebase.initializeApp(config);
-    </script>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -45,6 +32,19 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
+    <script src="lib/firebase/firebase.js"></script>
+    <script src="lib/angularfire/dist/angularfire.min.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCohe6_c1IUA7M8G3_UDFV9pzZhpzNw-sU",
+      authDomain: "ecommunity-f5eac.firebaseapp.com",
+      databaseURL: "https://ecommunity-f5eac.firebaseio.com",
+      storageBucket: "ecommunity-f5eac.appspot.com",
+      messagingSenderId: "335254327521"
+    };
+    firebase.initializeApp(config);
+    </script>
   </head>
 
   <body ng-app="starter">
