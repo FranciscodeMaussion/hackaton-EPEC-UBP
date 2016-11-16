@@ -15,7 +15,12 @@ angular.module('app.routes', [])
     views: {
       'side-menu21': {
         templateUrl: 'templates/inicio.html',
-        controller: 'inicioCtrl'
+        controller: 'inicioCtrl',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
       }
     }
   })
@@ -25,7 +30,12 @@ angular.module('app.routes', [])
     views: {
       'side-menu21': {
         templateUrl: 'templates/misComunidades.html',
-        controller: 'misComunidadesCtrl'
+        controller: 'misComunidadesCtrl',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
       }
     }
   })
@@ -35,7 +45,12 @@ angular.module('app.routes', [])
     views: {
       'side-menu21': {
         templateUrl: 'templates/anonimos.html',
-        controller: 'anonimosCtrl'
+        controller: 'anonimosCtrl',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
       }
     }
   })
@@ -66,7 +81,7 @@ angular.module('app.routes', [])
     }
   })
 
-$urlRouterProvider.otherwise('/side-menu/index')
+$urlRouterProvider.otherwise('/side-menu/inicio')
 
 
 
