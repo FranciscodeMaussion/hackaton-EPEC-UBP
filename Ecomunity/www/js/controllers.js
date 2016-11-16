@@ -6,8 +6,8 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('misComunidadesCtrl', ['$scope', '$stateParams', 'communities', 'community', '$rootScope', 'posts',
-function ($scope, $stateParams, communities, community, $rootScope, posts) {
+.controller('misComunidadesCtrl', ['$scope', '$stateParams', 'communities', 'community', '$rootScope', 'posts', '$ionicModal',
+function ($scope, $stateParams, communities, community, $rootScope, posts, $ionicModal) {
   $scope.showPosts = false;
   $scope.communities = communities;
   $scope.a = {};
@@ -30,6 +30,20 @@ function ($scope, $stateParams, communities, community, $rootScope, posts) {
     all.$add(msg);
     $scope.a.msg = "";
   }
+
+  $ionicModal.fromTemplateUrl('./templates/share.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modalProfile = modal;
+    });
+    $scope.openShare = function() {
+      $scope.modalProfile.show();
+    };
+    $scope.closeShare = function() {
+      $scope.modalProfile.hide();
+    };
+
 }])
 
 .controller('anonimosCtrl', ['$scope', '$stateParams', 'communities', 'community', '$rootScope', 'anonimos',
