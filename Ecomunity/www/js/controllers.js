@@ -6,24 +6,37 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('misComunidadesCtrl', ['$scope', '$stateParams', 'communities', 'community',
-function ($scope, $stateParams, communities, community) {
+.controller('misComunidadesCtrl', ['$scope', '$stateParams', 'communities', 'community', '$rootScope', 'posts',
+function ($scope, $stateParams, communities, community, $rootScope, posts) {
   $scope.showPosts = false;
   $scope.communities = communities;
+  $scope.a = {};
+  $scope.a.msg = "";
+  var current;
   $scope.show = function (id){
+    current = id;
     $scope.showPosts = true;
-    var comm = community(id)
-    $scope.posts = comm.posts;
+    $scope.posts = posts(id);
   };
   $scope.showAll = function (){
     $scope.showPosts = false;
   };
+  $scope.sendToCommunity = function(){
+    var all = posts(current);
+    var msg = {};
+    msg.text = $scope.a.msg;
+    msg.author = "pepe";
+    msg.type = "msg";
+    all.$add(msg);
+  }
 }])
 
-.controller('anonimosCtrl', ['$scope', '$stateParams', 'communities', 'community',
-function ($scope, $stateParams, communities, community)  {
+.controller('anonimosCtrl', ['$scope', '$stateParams', 'communities', 'community', '$rootScope', 'posts',
+function ($scope, $stateParams, communities, community, $rootScope, posts) {
   $scope.showPosts = false;
   $scope.communities = communities;
+  $scope.a = {};
+  $scope.a.msg = "";
   $scope.show = function (id){
     $scope.showPosts = true;
     var comm = community(id)
@@ -32,6 +45,13 @@ function ($scope, $stateParams, communities, community)  {
   $scope.showAll = function (){
     $scope.showPosts = false;
   };
+  $scope.sendToCommunity = function(){
+    var all = posts(current);
+    var msg = {};
+    msg.text = $scope.a.msg;
+    msg.type = "msg";
+    all.$add(msg);
+  }
 }])
 
 .controller('menCtrl', ['$scope', '$stateParams', 'Auth', '$rootScope',

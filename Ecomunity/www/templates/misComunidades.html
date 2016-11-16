@@ -6,15 +6,27 @@
         <ion-option-button class="button-assertive">Irse</ion-option-button>
       </ion-item>
     </ion-list>
-    <ion-list ng-show="showPosts">
-      <button class="button button-full button-positive" ng-click="showAll()">
-        Ver todas
-      </button>
-      <ion-item ng-repeat="post in posts">
-        {{post.text}}
-        {{post.author}}
-        <div ng-if="post.type=='ride'">Desde: {{post.desde}} Hasta: {{post.hasta}}</div>
-      </ion-item>
-    </ion-list>
+    <div ng-show="showPosts">
+      <ion-list>
+        <button class="button button-full button-positive" ng-click="showAll()">
+          Ver todas
+        </button>
+        <ion-item ng-repeat="post in posts">
+          {{post.text}}
+          {{post.author}}
+          <div ng-if="post.type=='ride'">Desde: {{post.desde}} Hasta: {{post.hasta}}</div>
+        </ion-item>
+
+      </ion-list>
+      <div class="item item-input-inset" style="bottom:0px">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Avisa a tu comunidad" ng-model="a.msg">
+        </label>
+        <button class="button button-small" ng-click="sendToCommunity()">
+          Enviar
+        </button>
+      </div>
+    </div>
+
   </ion-content>
 </ion-view>
