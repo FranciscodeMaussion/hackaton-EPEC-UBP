@@ -8,7 +8,7 @@ angular.module('app.services', [])
     return $firebaseArray(ref);
   }
 ])
-.factory("community", ["$firebaseObject", "communities"
+.factory("community", ["$firebaseObject", "communities",
   function($firebaseObject, communities) {
     return function(commId) {
       // create a reference to the database node where we will store our data
