@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('app.services', [])
 .factory("communities", ["$firebaseArray",
   function($firebaseArray) {
     // create a reference to the database location where we will store our data
@@ -18,4 +18,10 @@ angular.module('starter.controllers', [])
       return $firebaseObject(comm);
     }
   }
-]);
+])
+.factory("Auth", ["$firebaseAuth",
+  function($firebaseAuth) {
+    return $firebaseAuth();
+  }
+])
+;
