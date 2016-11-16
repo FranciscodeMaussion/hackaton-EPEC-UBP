@@ -6,13 +6,13 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('misComunidadesCtrl', ['$scope', '$stateParams',
-function ($scope, $stateParams) {
-
+.controller('misComunidadesCtrl', ['$scope', '$stateParams', 'communities',
+function ($scope, $stateParams, communities) {
+  $scope.communities = communities;
 
 }])
 
-.controller('anNimosCtrl', ['$scope', '$stateParams',
+.controller('anonimosCtrl', ['$scope', '$stateParams',
 function ($scope, $stateParams) {
 
 

@@ -2,6 +2,7 @@ angular.module('app.services', [])
 .factory("communities", ["$firebaseArray",
   function($firebaseArray) {
     // create a reference to the database location where we will store our data
+    console.log("deberias estar aca");
     var ref = firebase.database().ref().child('communities');
 
     // this uses AngularFire to create the synchronized array

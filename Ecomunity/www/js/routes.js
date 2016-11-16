@@ -30,12 +30,12 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('men.anNimos', {
+  .state('men.anonimos', {
     url: '/page3',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/anNimos.html',
-        controller: 'anNimosCtrl'
+        templateUrl: 'templates/anonimos.html',
+        controller: 'anonimosCtrl'
       }
     }
   })
