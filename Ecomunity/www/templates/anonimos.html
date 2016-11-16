@@ -1,8 +1,17 @@
 <ion-view title="Anónimos" id="page3">
+
   <ion-content padding="true" class="has-header">
-    <ion-list id="anonimos-list6">
-      <ion-item class="item-avatar" id="anonimos-list-item15">
-        <h2>Anónimo X</h2>
+    <ion-list ng-hide="showPosts">
+      <ion-item ng-repeat="comm in communities"ng-click="show(comm.$id)">{{comm.name}}
+
+      </ion-item>
+    </ion-list>
+    <ion-list ng-show="showPosts">
+      <button class="button button-full button-positive" ng-click="showAll()">
+        Ver todas
+      </button>
+      <ion-item ng-repeat="post in posts" class="item-avatar" >
+        <h2>Anónimo X</h2> {{post}}
       </ion-item>
     </ion-list>
   </ion-content>
