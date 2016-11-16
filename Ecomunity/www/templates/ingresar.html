@@ -4,19 +4,19 @@
       <ion-list id="ingresar-list2">
         <label class="item item-input" id="ingresar-input1">
           <span class="input-label">Usuario</span>
-          <input type="text" placeholder="">
+          <input type="email" placeholder="" ng-model="user.mail">
         </label>
         <label class="item item-input" id="ingresar-input2">
           <span class="input-label">Contraseña</span>
-          <input type="password" placeholder="">
+          <input type="password" placeholder="" ng-model="user.pass">
         </label>
       </ion-list>
       <div class="spacer" style="height: 40px;"></div>
       <div id="ingresar-button-bar1" class="button-bar">
-        <button id="ingresar-button1" class="button button-positive  button-block">Ingresar</button>
-        <button id="ingresar-button7" class="button button-assertive  button-block">Google</button>
+        <button id="ingresar-button1" class="button button-positive  button-block" ng-click="register()">Ingresar</button>
+        <!-- <button id="ingresar-button7" class="button button-assertive  button-block" ng-click="Auth.$signInWithPopup('google')">Google</button> -->
       </div>
-      <a href="#" onclick="window.open('/signup', '_system', 'location=yes'); return false;" id="ingresar-button2" class="button button-positive  button-block button-clear">Crear una cuenta</a>
+      <a id="ingresar-button2" class="button button-positive  button-block button-clear" ng-click="goToRegister()">Crear una cuenta</a>
     </form>
   </ion-content>
 </ion-view>
