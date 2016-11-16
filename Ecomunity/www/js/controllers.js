@@ -6,9 +6,9 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('misComunidadesCtrl', ['$scope', '$stateParams',
-function ($scope, $stateParams) {
-
+.controller('misComunidadesCtrl', ['$scope', '$stateParams', 'communities',
+function ($scope, $stateParams, communities) {
+  $scope.communities = communities;
 
 }])
 
