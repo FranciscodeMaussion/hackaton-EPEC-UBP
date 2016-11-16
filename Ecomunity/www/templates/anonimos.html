@@ -16,15 +16,13 @@
           <h2>Anónimo X</h2> {{post.text}}
         </ion-item>
       </ion-list>
-      <div class="item item-input-inset" style="bottom:0px">
-        <label class="item-input-wrapper">
-          <input type="text" placeholder="Avisa a tu comunidad" ng-model="a.msg">
-        </label>
-        <button class="button button-small" ng-click="sendToCommunity()">
-          Enviar
-        </button>
-      </div>
     </div>
 
   </ion-content>
+  <ion-footer-bar class="bar-stable row" ng-show="showPosts">
+      <input type="text" placeholder="Avisa a tu comunidad" ng-model="a.msg" class="col-80">
+      <button class="button button-clear button-positive" ng-click="sendToCommunity()" class="col-20">
+        Enviar
+      </button>
+  </ion-footer-bar>
 </ion-view>
