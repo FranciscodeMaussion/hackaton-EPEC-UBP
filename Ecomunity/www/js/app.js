@@ -8,7 +8,7 @@
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'firebase'])
 
 
-.run(function($ionicPlatform, $rootScope, $location) {
+.run(function($ionicPlatform, $rootScope, $location, Auth) {
   $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
     // We can catch the error thrown when the $requireSignIn promise is rejected
     // and redirect the user back to the home page
@@ -17,6 +17,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     }
   });
   $ionicPlatform.ready(function() {
+    Auth.$onAuthStateChanged(function(firebaseUser) {
+      $rootScope.firebaseUser = firebaseUser;
+    });
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {

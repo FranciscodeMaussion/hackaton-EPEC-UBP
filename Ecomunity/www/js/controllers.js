@@ -56,6 +56,7 @@ function ($scope, $stateParams, $state, Auth, $rootScope) {
       Auth.$onAuthStateChanged(function(firebaseUser) {
         $rootScope.firebaseUser = firebaseUser;
       });
+      $state.go('men.inicio');
     }).catch(function(error) {
       console.log(error);
       if (error.code == 'auth/user-not-found'){
@@ -71,8 +72,8 @@ function ($scope, $stateParams, $state, Auth, $rootScope) {
   }
 }])
 
-.controller('registrarseCtrl', ['$scope', '$stateParams', 'Auth', '$rootScope',
-function ($scope, $stateParams, Auth, $rootScope) {
+.controller('registrarseCtrl', ['$scope', '$stateParams', '$state', 'Auth', '$rootScope',
+function ($scope, $stateParams, $state, Auth, $rootScope) {
   $scope.user = {
     'mail':'',
     'pass':''
@@ -88,6 +89,7 @@ function ($scope, $stateParams, Auth, $rootScope) {
       Auth.$onAuthStateChanged(function(firebaseUser) {
         $rootScope.firebaseUser = firebaseUser;
       });
+      $state.go('men.inicio');
     }).catch(function(error) {
       $scope.error = error;
     });
