@@ -14,7 +14,6 @@
     </ion-header-bar>
     <ion-content padding="false" class="side-menu-left has-header ">
       <ion-list id="men-list1">
-        <ion-item ng-if="$root.firebaseUser !== null" ui-sref="men.inicio" menu-close="">Inicio</ion-item>
         <ion-item ng-if="$root.firebaseUser !== null" ui-sref="men.misComunidades" menu-close="">Mis Comunidades</ion-item>
         <ion-item ng-if="$root.firebaseUser !== null" ui-sref="men.anonimos" menu-close="">Anónimo</ion-item>
         <ion-item ng-if="$root.firebaseUser === null" ui-sref="men.ingresar" menu-close="">Ingresar</ion-item>

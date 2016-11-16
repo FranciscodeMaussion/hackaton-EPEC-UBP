@@ -8,23 +8,6 @@ angular.module('app.routes', [])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-
-
-      .state('men.inicio', {
-    url: '/index',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/inicio.html',
-        controller: 'inicioCtrl',
-        resolve: {
-          "currentAuth": ["Auth", function(Auth) {
-            return Auth.$requireSignIn();
-          }]
-        }
-      }
-    }
-  })
-
   .state('men.misComunidades', {
     url: '/communities',
     views: {

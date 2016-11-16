@@ -1,11 +1,5 @@
 angular.module('app.controllers', [])
 
-.controller('inicioCtrl', ['$scope', '$stateParams',
-function ($scope, $stateParams) {
-
-
-}])
-
 .controller('misComunidadesCtrl', ['$scope', '$stateParams', 'communities', 'community', '$rootScope', 'posts',
 function ($scope, $stateParams, communities, community, $rootScope, posts) {
   $scope.showPosts = false;
@@ -25,7 +19,7 @@ function ($scope, $stateParams, communities, community, $rootScope, posts) {
     var all = posts(current);
     var msg = {};
     msg.text = $scope.a.msg;
-    msg.author = "pepe";
+    msg.author = $rootScope.firebaseUser.email;
     msg.type = "msg";
     all.$add(msg);
   }

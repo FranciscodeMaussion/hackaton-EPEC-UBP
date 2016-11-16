@@ -12,21 +12,19 @@
           Ver todas
         </button>
         <ion-item ng-repeat="post in posts">
-          {{post.text}}
-          {{post.author}}
+          <h2>{{post.text}}</h2> {{post.author}}
           <div ng-if="post.type=='ride'">Desde: {{post.desde}} Hasta: {{post.hasta}}</div>
         </ion-item>
 
       </ion-list>
-      <div class="item item-input-inset" style="bottom:0px">
-        <label class="item-input-wrapper">
-          <input type="text" placeholder="Avisa a tu comunidad" ng-model="a.msg">
-        </label>
-        <button class="button button-small" ng-click="sendToCommunity()">
-          Enviar
-        </button>
-      </div>
+
     </div>
 
   </ion-content>
+  <ion-footer-bar class="bar-stable row" ng-show="showPosts">
+      <input type="text" placeholder="Avisa a tu comunidad" ng-model="a.msg" class="col-80">
+      <button class="button button-clear button-positive" ng-click="sendToCommunity()" class="col-20">
+        Enviar
+      </button>
+  </ion-footer-bar>
 </ion-view>
