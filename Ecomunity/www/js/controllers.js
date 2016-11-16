@@ -24,8 +24,8 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('ingresarCtrl', ['$scope', '$stateParams', '$state',
-function ($scope, $stateParams, $state) {
+.controller('ingresarCtrl', ['$scope', '$stateParams', '$state', 'Auth',
+function ($scope, $stateParams, $state, Auth) {
   $scope.login = function(){
     Auth.$signInWithEmailAndPassword($scope.user.mail, $scope.user.pass).then(function(firebaseUser) {
       console.log("Signed in as:", JSON.stringify(firebaseUser.uid));
@@ -52,8 +52,8 @@ function ($scope, $stateParams, $state) {
   }
 }])
 
-.controller('registrarseCtrl', ['$scope', '$stateParams',
-function ($scope, $stateParams) {
+.controller('registrarseCtrl', ['$scope', '$stateParams', 'Auth',
+function ($scope, $stateParams, Auth) {
   $scope.register = function(){
     Auth.$createUserWithEmailAndPassword($scope.user.mail, $scope.user.pass)
     .then(function(firebaseUser) {
