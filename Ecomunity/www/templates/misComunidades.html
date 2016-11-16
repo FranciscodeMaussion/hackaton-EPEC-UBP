@@ -1,8 +1,19 @@
 <ion-view title="Mis Comunidades" id="page2">
   <ion-content padding="true" class="has-header">
-    <ion-list id="misComunidades-list5">
-      <ion-item ng-repeat="comm in communities" >{{comm.name}}
+    <ion-list ng-hide="showPosts">
+      <ion-item ng-repeat="comm in communities" ng-click="show(comm.$id)">
+        {{comm.name}}
         <ion-option-button class="button-assertive">Irse</ion-option-button>
+      </ion-item>
+    </ion-list>
+    <ion-list ng-show="showPosts">
+      <button class="button button-full button-positive" ng-click="showAll()">
+        Ver todas
+      </button>
+      <ion-item ng-repeat="post in posts">
+        {{post.text}}
+        {{post.author}}
+        <div ng-if="post.type=='ride'">Desde: {{post.desde}} Hasta: {{post.hasta}}</div>
       </ion-item>
     </ion-list>
   </ion-content>
