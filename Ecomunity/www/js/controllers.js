@@ -54,14 +54,17 @@ function ($scope, $stateParams, communities, community, $rootScope, posts) {
   }
 }])
 
-.controller('menCtrl', ['$scope', '$stateParams',
-function ($scope, $stateParams) {
-
+.controller('menCtrl', ['$scope', '$stateParams', 'Auth', '$rootScope',
+function ($scope, $stateParams, Auth, $rootScope) {
 
 }])
 
-.controller('ingresarCtrl', ['$scope', '$stateParams', '$state', 'Auth',
-function ($scope, $stateParams, $state, Auth) {
+.controller('ingresarCtrl', ['$scope', '$stateParams', '$state', 'Auth', '$rootScope',
+function ($scope, $stateParams, $state, Auth, $rootScope) {
+  $scope.user = {
+    'mail':'',
+    'pass':''
+  };
   $scope.login = function(){
     Auth.$signInWithEmailAndPassword($scope.user.mail, $scope.user.pass).then(function(firebaseUser) {
       console.log("Signed in as:", JSON.stringify(firebaseUser.uid));
@@ -71,7 +74,7 @@ function ($scope, $stateParams, $state, Auth) {
         'pass':''
       };
       Auth.$onAuthStateChanged(function(firebaseUser) {
-        $scope.firebaseUser = firebaseUser;
+        $rootScope.firebaseUser = firebaseUser;
       });
     }).catch(function(error) {
       console.log(error);
@@ -88,8 +91,12 @@ function ($scope, $stateParams, $state, Auth) {
   }
 }])
 
-.controller('registrarseCtrl', ['$scope', '$stateParams', 'Auth',
-function ($scope, $stateParams, Auth) {
+.controller('registrarseCtrl', ['$scope', '$stateParams', 'Auth', '$rootScope',
+function ($scope, $stateParams, Auth, $rootScope) {
+  $scope.user = {
+    'mail':'',
+    'pass':''
+  };
   $scope.register = function(){
     Auth.$createUserWithEmailAndPassword($scope.user.mail, $scope.user.pass)
     .then(function(firebaseUser) {
@@ -98,6 +105,9 @@ function ($scope, $stateParams, Auth) {
         'mail':'',
         'pass':''
       };
+      Auth.$onAuthStateChanged(function(firebaseUser) {
+        $rootScope.firebaseUser = firebaseUser;
+      });
     }).catch(function(error) {
       $scope.error = error;
     });
