@@ -43,8 +43,7 @@ function ($scope, $stateParams, communities, community, $rootScope, anonimos) {
   $scope.show = function (id){
     current = id;
     $scope.showPosts = true;
-    var comm = community(id)
-    $scope.posts = comm.anonimos;
+    $scope.posts = anonimos(id);
   };
   $scope.showAll = function (){
     $scope.showPosts = false;

@@ -28,7 +28,7 @@ angular.module('app.services', [])
     };
   }
 ])
-.factory("posts", ["$firebaseArray",
+.factory("anonimos", ["$firebaseArray",
   function($firebaseArray) {
     return function(commId) {
       // create a reference to the database node where we will store our data
