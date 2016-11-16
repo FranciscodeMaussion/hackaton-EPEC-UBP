@@ -81,7 +81,7 @@ angular.module('app.routes', [])
     }
   })
 
-$urlRouterProvider.otherwise('/side-menu/inicio')
+$urlRouterProvider.otherwise('/side-menu/login')
 
 
 
