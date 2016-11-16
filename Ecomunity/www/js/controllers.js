@@ -44,6 +44,22 @@ function ($scope, $stateParams, communities, community, $rootScope, posts, $ioni
       $scope.modalProfile.hide();
     };
 
+    $scope.viaje = {};
+    $scope.viaje.desde = "";
+    $scope.viaje.hasta = "";
+    $scope.compartir = function(){
+      var all = posts(current);
+      var msg = {};
+      msg.text = $scope.a.msg;
+      msg.author = "pepe";
+      msg.type = "ride";
+      msg.desde = $scope.viaje.desde;
+      msg.hasta = $scope.viaje.hasta;
+      all.$add(msg);
+      $scope.viaje.desde = "";
+      $scope.viaje.hasta = "";
+      $scope.closeShare();
+    }
 }])
 
 .controller('anonimosCtrl', ['$scope', '$stateParams', 'communities', 'community', '$rootScope', 'anonimos',

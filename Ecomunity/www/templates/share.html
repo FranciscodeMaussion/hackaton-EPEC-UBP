@@ -1,12 +1,19 @@
-  <ion-content padding="true" class="has-header">
+<ion-modal-view >
 
-      <div class="item item-input-inset" style="bottom:0px">
-        <label class="item-input-wrapper">
-          <input type="text" placeholder="Avisa a tu comunidad" ng-model="a.msg">
-        </label>
-        <button class="button button-small" ng-click="sendToCommunity()">
-          Enviar
-        </button>
-      </div>
-
+  <ion-content >
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Desde</span>
+        <input type="text" placeholder="Desde" ng-model="viaje.desde">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Hasta</span>
+        <input type="text" placeholder="Hasta" ng-model="viaje.hasta">
+      </label>
+      <button class="button button-full button-positive" ng-click="compartir()">
+        Compartir Viaje
+      </button>
+    </div>
   </ion-content>
+
+</ion-modal-view>
