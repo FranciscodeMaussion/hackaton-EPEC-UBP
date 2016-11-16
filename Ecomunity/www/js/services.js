@@ -28,6 +28,16 @@ angular.module('app.services', [])
     };
   }
 ])
+.factory("anonimos", ["$firebaseArray",
+  function($firebaseArray) {
+    return function(commId) {
+      // create a reference to the database node where we will store our data
+      var ref = firebase.database().ref().child('communities/'+commId+"/anonimos");
+      // return it as a synchronized object
+      return $firebaseArray(ref);
+    };
+  }
+])
 .factory("Auth", ["$firebaseAuth",
   function($firebaseAuth) {
     return $firebaseAuth();

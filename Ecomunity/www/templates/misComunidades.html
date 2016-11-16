@@ -17,14 +17,16 @@
         </ion-item>
 
       </ion-list>
-
     </div>
 
   </ion-content>
   <ion-footer-bar class="bar-stable row" ng-show="showPosts">
-      <input type="text" placeholder="Avisa a tu comunidad" ng-model="a.msg" class="col-80">
+      <input type="text" placeholder="Avisa a tu comunidad" ng-model="a.msg" class="col-67">
       <button class="button button-clear button-positive" ng-click="sendToCommunity()" class="col-20">
         Enviar
+      </button>
+      <button class="button button-clear button-calm" ng-click="openShare()" class="col-20">
+        Viaje
       </button>
   </ion-footer-bar>
 </ion-view>

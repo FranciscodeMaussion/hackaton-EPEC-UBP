@@ -12,7 +12,7 @@
           Ver todas
         </button>
         <ion-item ng-repeat="post in posts" class="item-avatar" >
-          <h2>Anónimo X</h2> {{post}}
+          <h2>Anónimo X</h2> {{post.text}}
         </ion-item>
       </ion-list>
       <div class="item item-input-inset" style="bottom:0px">
@@ -22,7 +22,7 @@
         <button class="button button-small" ng-click="sendToCommunity()">
           Enviar
         </button>
-      </div>      
+      </div>
     </div>
 
   </ion-content>

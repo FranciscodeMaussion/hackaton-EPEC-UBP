@@ -1,7 +1,7 @@
 angular.module('app.controllers', [])
 
-.controller('misComunidadesCtrl', ['$scope', '$stateParams', 'communities', 'community', '$rootScope', 'posts',
-function ($scope, $stateParams, communities, community, $rootScope, posts) {
+.controller('misComunidadesCtrl', ['$scope', '$stateParams', 'communities', 'community', '$rootScope', 'posts', '$ionicModal',
+function ($scope, $stateParams, communities, community, $rootScope, posts, $ionicModal) {
   $scope.showPosts = false;
   $scope.communities = communities;
   $scope.a = {};
@@ -22,29 +22,63 @@ function ($scope, $stateParams, communities, community, $rootScope, posts) {
     msg.author = $rootScope.firebaseUser.email;
     msg.type = "msg";
     all.$add(msg);
+    $scope.a.msg = "";
   }
+
+  $ionicModal.fromTemplateUrl('./templates/share.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modalProfile = modal;
+    });
+    $scope.openShare = function() {
+      $scope.modalProfile.show();
+    };
+    $scope.closeShare = function() {
+      $scope.modalProfile.hide();
+    };
+
+    $scope.viaje = {};
+    $scope.viaje.desde = "";
+    $scope.viaje.hasta = "";
+    $scope.compartir = function(){
+      var all = posts(current);
+      var msg = {};
+      msg.text = $scope.a.msg;
+      msg.author = $rootScope.firebaseUser.email;
+      msg.type = "ride";
+      msg.desde = $scope.viaje.desde;
+      msg.hasta = $scope.viaje.hasta;
+      all.$add(msg);
+      $scope.viaje.desde = "";
+      $scope.viaje.hasta = "";
+      $scope.closeShare();
+    }
 }])
 
-.controller('anonimosCtrl', ['$scope', '$stateParams', 'communities', 'community', '$rootScope', 'posts',
-function ($scope, $stateParams, communities, community, $rootScope, posts) {
+.controller('anonimosCtrl', ['$scope', '$stateParams', 'communities', 'community', '$rootScope', 'anonimos',
+function ($scope, $stateParams, communities, community, $rootScope, anonimos) {
   $scope.showPosts = false;
   $scope.communities = communities;
   $scope.a = {};
   $scope.a.msg = "";
+  var current;
+
   $scope.show = function (id){
+    current = id;
     $scope.showPosts = true;
-    var comm = community(id)
-    $scope.posts = comm.anonimos;
+    $scope.posts = anonimos(id);
   };
   $scope.showAll = function (){
     $scope.showPosts = false;
   };
   $scope.sendToCommunity = function(){
-    var all = posts(current);
+    var all = anonimos(current);
     var msg = {};
     msg.text = $scope.a.msg;
     msg.type = "msg";
     all.$add(msg);
+    $scope.a.msg = "";
   }
 }])
 
